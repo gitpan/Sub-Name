@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Sub-Name
-version:            0.05
+version:            0.0501
 abstract:           (re)name a sub
 author:
     - Matthijs van Duin <xmath@cpan.org>
