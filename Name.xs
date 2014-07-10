@@ -1,4 +1,5 @@
 /* Copyright (C) 2004, 2008  Matthijs van Duin.  All rights reserved.
+ * Copyright (C) 2014, cPanel Inc.  All rights reserved.
  * This program is free software; you can redistribute it and/or modify
  * it under the same terms as Perl itself.
  */
@@ -6,11 +7,6 @@
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
-
-/* 5.8.8 is the first version with this, apparently */	
-#ifndef SvPVX_const
-#define SvPVX_const(sv)  ((const char *)SvPVX(sv))
-#endif
 
 static MGVTBL subname_vtbl;
 
@@ -35,7 +31,7 @@ subname(name, sub)
 	CV *cv = NULL;
 	GV *gv;
 	HV *stash = CopSTASH(PL_curcop);
-	char *s, *end = NULL, saved;
+	char *s, *end = NULL;
 	MAGIC *mg;
     PPCODE:
 	if (!SvROK(sub) && SvGMAGICAL(sub))
@@ -62,13 +58,10 @@ subname(name, sub)
 			end = s;
 	}
 	s--;
-	if (end) {
-		saved = *end;
-		*end = 0;
-		stash = GvHV(gv_fetchpv(name, TRUE, SVt_PVHV));
-		*end = saved;
-		name = end;
-	}
+        if (end) {
+		stash = GvHV(gv_fetchpv(savepvn(name, end - name), TRUE, SVt_PVHV));
+                name = end;
+        }
 	gv = (GV *) newSV(0);
 	gv_init(gv, stash, name, s - name, TRUE);
 
@@ -87,19 +80,6 @@ subname(name, sub)
 	mg->mg_flags |= MGf_REFCOUNTED;
 	mg->mg_obj = (SV *) gv;
 	SvRMAGICAL_on(cv);
-
-	if (PERLDB_SUBLINE && CvGV(cv) && isGV(CvGV(cv))) {
-	    SV * const namesv = sv_newmortal();
-	    SV *infosv;
-	    gv_efullname3(namesv, CvGV(cv), NULL);
-	    infosv = hv_delete(GvHV(PL_DBsub), SvPVX_const(namesv), SvCUR(namesv), 0);
-	    if (infosv) {
-	        /* we use the gv's idea of its spelling, in case we call subname again on the same CV */
-		gv_efullname3(namesv, gv, NULL);
-		(void)hv_store(GvHV(PL_DBsub), SvPVX_const(namesv), SvCUR(namesv), SvREFCNT_inc(infosv), 0);
-	    }
-	}
-
 	CvANON_off(cv);
 #ifndef CvGV_set
 	CvGV(cv) = gv;
