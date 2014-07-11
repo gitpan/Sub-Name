@@ -22,4 +22,4 @@ requires:
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Sub-Name
   repository: https://github.com/karenetheridge/Sub-Name.git
-version: '0.06'
+version: '0.07'
