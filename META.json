@@ -22,7 +22,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "0"
+            "Devel::CheckBin" : "0",
+            "Test::More" : "0"
          }
       },
       "configure" : {
@@ -50,5 +51,5 @@
          "web" : "https://github.com/karenetheridge/Sub-Name"
       }
    },
-   "version" : "0.08"
+   "version" : "0.09"
 }

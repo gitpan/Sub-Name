@@ -1,5 +1,5 @@
 
-#!start included /Users/ether/perl5/perlbrew/perls/21.1/lib/5.21.1/ExtUtils/MANIFEST.SKIP
+#!start included /Users/ether/.perlbrew/libs/21.2@std/lib/perl5/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
 \bCVS\b
@@ -42,6 +42,7 @@
 \.tmp$
 \.#
 \.rej$
+\..*\.sw.?$
 
 # Avoid OS-specific files/dirs
 # Mac OSX metadata
@@ -53,9 +54,12 @@
 \bcover_db\b
 \bcovered\b
 
+# Avoid prove files
+\B\.prove$
+
 # Avoid MYMETA files
 ^MYMETA\.
-#!end included /Users/ether/perl5/perlbrew/perls/21.1/lib/5.21.1/ExtUtils/MANIFEST.SKIP
+#!end included /Users/ether/.perlbrew/libs/21.2@std/lib/perl5/ExtUtils/MANIFEST.SKIP
 
 ^\.
 build\b

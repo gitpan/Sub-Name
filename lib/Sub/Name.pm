@@ -18,16 +18,25 @@ This module has only one function, which is also exported by default:
 
 =head2 subname NAME, CODEREF
 
-Assigns a new name to referenced sub.  If package specification is omitted in 
+Assigns a new name to referenced sub.  If package specification is omitted in
 the name, then the current package is used.  The return value is the sub.
 
-The name is only used for informative routines (caller, Carp, etc).  You won't 
-be able to actually invoke the sub by the given name.  To allow that, you need 
+The name is only used for informative routines (caller, Carp, etc).  You won't
+be able to actually invoke the sub by the given name.  To allow that, you need
 to do glob-assignment yourself.
 
-Note that for anonymous closures (subs that reference lexicals declared outside 
-the sub itself) you can name each instance of the closure differently, which 
+Note that for anonymous closures (subs that reference lexicals declared outside
+the sub itself) you can name each instance of the closure differently, which
 can be very useful for debugging.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+L<Sub::Identify> - for getting information about subs
+
+=back
 
 =head1 AUTHOR
 
@@ -35,7 +44,7 @@ Matthijs van Duin <xmath@cpan.org>
 
 Copyright (C) 2004, 2008  Matthijs van Duin.  All rights reserved.
 Copyright (C) 2014 cPanel Inc.  All rights reserved.
-This program is free software; you can redistribute it and/or modify 
+This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =cut
@@ -45,7 +54,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use base 'Exporter';
 use base 'DynaLoader';
