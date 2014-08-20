@@ -1,9 +1,6 @@
 package Sub::Name;
-BEGIN {
-  $Sub::Name::AUTHORITY = 'cpan:FLORA';
-}
-# git description: v0.09-5-gc2501c3
-$Sub::Name::VERSION = '0.10'; # TRIAL
+# git description: v0.10-TRIAL-4-gf093e04
+$Sub::Name::VERSION = '0.11'; # TRIAL
 # ABSTRACT: (re)name a sub
 
 #pod =pod
@@ -88,7 +85,7 @@ Sub::Name - (re)name a sub
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 
@@ -140,7 +137,7 @@ Matthijs van Duin <xmath@cpan.org>
 
 =head1 CONTRIBUTORS
 
-=for stopwords Karen Etheridge Florian Ragwitz Matthijs van Duin Reini Urban Dagfinn Ilmari Mannsåker gfx
+=for stopwords Karen Etheridge Florian Ragwitz Matthijs van Duin Reini Urban Dagfinn Ilmari Mannsåker gfx J.R. Mash
 
 =over 4
 
@@ -167,6 +164,10 @@ Dagfinn Ilmari Mannsåker <ilmari@ilmari.org>
 =item *
 
 gfx <gfuji@cpan.org>
+
+=item *
+
+J.R. Mash <jmash.code@gmail.com>
 
 =back
 
