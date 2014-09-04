@@ -140,10 +140,10 @@
    "provides" : {
       "Sub::Name" : {
          "file" : "lib/Sub/Name.pm",
-         "version" : "0.11"
+         "version" : "0.12"
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "mailto" : "bug-Sub-Name@rt.cpan.org",
@@ -156,10 +156,10 @@
          "web" : "https://github.com/karenetheridge/Sub-Name"
       }
    },
-   "version" : "0.11",
+   "version" : "0.12",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.021002"
+         "version" : "5.021003"
       },
       "plugins" : [
          {
@@ -311,7 +311,7 @@
                }
             },
             "name" : "@Author::ETHER/Test::Compile",
-            "version" : "2.045"
+            "version" : "2.046"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::NoTabs",
@@ -379,11 +379,12 @@
             "class" : "Dist::Zilla::Plugin::Test::Kwalitee",
             "config" : {
                "Dist::Zilla::Plugin::Test::Kwalitee" : {
+                  "filename" : "xt/release/kwalitee.t",
                   "skiptest" : []
                }
             },
             "name" : "@Author::ETHER/Test::Kwalitee",
-            "version" : "2.08"
+            "version" : "2.11"
          },
          {
             "class" : "Dist::Zilla::Plugin::MojibakeTests",
@@ -506,7 +507,12 @@
                      },
                      {
                         "class" : "Pod::Weaver::Section::Generic",
-                        "name" : "legal",
+                        "name" : "COPYRIGHT AND LICENSE",
+                        "version" : "4.006"
+                     },
+                     {
+                        "class" : "Pod::Weaver::Plugin::Transformer",
+                        "name" : "-Transformer",
                         "version" : "4.006"
                      }
                   ]
@@ -562,7 +568,7 @@
                }
             },
             "name" : "@Author::ETHER/MetaProvides::Package",
-            "version" : "2.000004"
+            "version" : "2.001001"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
@@ -665,7 +671,7 @@
                }
             },
             "name" : "@Author::ETHER/Run::AfterBuild",
-            "version" : "0.025"
+            "version" : "0.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckStrictVersion",
@@ -768,7 +774,7 @@
                }
             },
             "name" : "@Author::ETHER/remove old READMEs",
-            "version" : "0.025"
+            "version" : "0.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -804,7 +810,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.11-TRIAL",
+                  "tag" : "v0.12",
                   "tag_format" : "v%v%t",
                   "tag_message" : "v%v%t",
                   "time_zone" : "local"
@@ -845,7 +851,7 @@
                }
             },
             "name" : "@Author::ETHER/install release",
-            "version" : "0.025"
+            "version" : "0.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
@@ -912,7 +918,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "5.020"
       }

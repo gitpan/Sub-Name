@@ -24,7 +24,7 @@ no_index:
 provides:
   Sub::Name:
     file: lib/Sub/Name.pm
-    version: '0.11'
+    version: '0.12'
 requires:
   Exporter: '5.57'
   XSLoader: '0'
@@ -35,10 +35,10 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Sub-Name
   homepage: https://github.com/karenetheridge/Sub-Name
   repository: https://github.com/karenetheridge/Sub-Name.git
-version: '0.11'
+version: '0.12'
 x_Dist_Zilla:
   perl:
-    version: '5.021002'
+    version: '5.021003'
   plugins:
     -
       class: Dist::Zilla::Plugin::Prereqs
@@ -155,7 +155,7 @@ x_Dist_Zilla:
             - '@Author::ETHER/Examples'
           skips: []
       name: '@Author::ETHER/Test::Compile'
-      version: '2.045'
+      version: '2.046'
     -
       class: Dist::Zilla::Plugin::Test::NoTabs
       config:
@@ -209,9 +209,10 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Test::Kwalitee
       config:
         Dist::Zilla::Plugin::Test::Kwalitee:
+          filename: xt/release/kwalitee.t
           skiptest: []
       name: '@Author::ETHER/Test::Kwalitee'
-      version: '2.08'
+      version: '2.11'
     -
       class: Dist::Zilla::Plugin::MojibakeTests
       name: '@Author::ETHER/MojibakeTests'
@@ -310,7 +311,11 @@ x_Dist_Zilla:
               version: '0.008'
             -
               class: Pod::Weaver::Section::Generic
-              name: legal
+              name: 'COPYRIGHT AND LICENSE'
+              version: '4.006'
+            -
+              class: Pod::Weaver::Plugin::Transformer
+              name: -Transformer
               version: '4.006'
       name: '@Author::ETHER/PodWeaver'
       version: '4.006'
@@ -350,7 +355,7 @@ x_Dist_Zilla:
           inherit_version: '1'
           meta_noindex: '1'
       name: '@Author::ETHER/MetaProvides::Package'
-      version: '2.000004'
+      version: '2.001001'
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Author::ETHER/MetaConfig'
@@ -425,7 +430,7 @@ x_Dist_Zilla:
           run:
             - "bash -c \"if [[ `dirname %d` != .build ]]; then test -e .ackrc && grep -q -- '--ignore-dir=%d' .ackrc || echo '--ignore-dir=%d' >> .ackrc; fi; if [[ %d =~ ^%n-[.[:xdigit:]]+$ ]]; then rm -f .latest; ln -s %d .latest; fi\""
       name: '@Author::ETHER/Run::AfterBuild'
-      version: '0.025'
+      version: '0.023'
     -
       class: Dist::Zilla::Plugin::CheckStrictVersion
       name: '@Author::ETHER/CheckStrictVersion'
@@ -501,7 +506,7 @@ x_Dist_Zilla:
           run:
             - 'rm -f README.md'
       name: '@Author::ETHER/remove old READMEs'
-      version: '0.025'
+      version: '0.023'
     -
       class: Dist::Zilla::Plugin::Git::Commit
       config:
@@ -529,7 +534,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.11-TRIAL
+          tag: v0.12
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
@@ -558,7 +563,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Run::Role::Runner:
           run: REDACTED
       name: '@Author::ETHER/install release'
-      version: '0.025'
+      version: '0.023'
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@Author::ETHER/ConfirmRelease'
@@ -610,7 +615,7 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: '1'
+      is_trial: '0'
     version: '5.020'
 x_authority: cpan:FLORA
 x_contributors:

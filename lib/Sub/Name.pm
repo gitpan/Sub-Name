@@ -1,6 +1,6 @@
 package Sub::Name;
-# git description: v0.10-TRIAL-4-gf093e04
-$Sub::Name::VERSION = '0.11'; # TRIAL
+# git description: v0.11-TRIAL-5-g86f08d9
+$Sub::Name::VERSION = '0.12';
 # ABSTRACT: (re)name a sub
 
 #pod =pod
@@ -34,16 +34,13 @@ $Sub::Name::VERSION = '0.11'; # TRIAL
 #pod
 #pod =head1 SEE ALSO
 #pod
-#pod =over 4
-#pod
-#pod =item *
-#pod L<Sub::Identify> - for getting information about subs
-#pod
-#pod =back
-#pod
-#pod =head1 COPYRIGHT AND LICENSE
+#pod =for :list
+#pod * L<Sub::Identify> - for getting information about subs
+#pod * L<Sub::Util> - set_subname is another implementation of C<subname>
 #pod
 #pod =for stopwords cPanel
+#pod
+#pod =head1 COPYRIGHT AND LICENSE
 #pod
 #pod This software is copyright (c) 2004, 2008 by Matthijs van Duin, all rights reserved;
 #pod copyright (c) 2014 cPanel Inc., all rights reserved.
@@ -85,7 +82,7 @@ Sub::Name - (re)name a sub
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -119,17 +116,16 @@ can be very useful for debugging.
 =over 4
 
 =item *
+
 L<Sub::Identify> - for getting information about subs
+
+=item *
+
+L<Sub::Util> - set_subname is another implementation of C<subname>
 
 =back
 
 =for stopwords cPanel
-
-This software is copyright (c) 2004, 2008 by Matthijs van Duin, all rights reserved;
-copyright (c) 2014 cPanel Inc., all rights reserved.
-
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
@@ -172,5 +168,11 @@ J.R. Mash <jmash.code@gmail.com>
 =back
 
 =head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2004, 2008 by Matthijs van Duin, all rights reserved;
+copyright (c) 2014 cPanel Inc., all rights reserved.
+
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
